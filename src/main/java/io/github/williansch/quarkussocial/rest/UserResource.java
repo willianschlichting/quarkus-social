@@ -20,8 +20,8 @@ import javax.ws.rs.core.Response;
 
 import io.github.williansch.quarkussocial.domain.model.User;
 import io.github.williansch.quarkussocial.domain.repository.UserRepository;
-import io.github.williansch.quarkussocial.rest.dto.ResponseError;
 import io.github.williansch.quarkussocial.rest.dto.UserDto;
+import io.github.williansch.quarkussocial.rest.dto.error.ResponseError;
 
 @Path("/users")
 @Consumes(MediaType.APPLICATION_JSON)

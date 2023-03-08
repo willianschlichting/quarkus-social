@@ -1,4 +1,4 @@
-package io.github.williansch.quarkussocial.rest.dto;
+package io.github.williansch.quarkussocial.rest.dto.error;
 
 import java.util.Collection;
 import java.util.List;
