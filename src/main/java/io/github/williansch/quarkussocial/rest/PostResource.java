@@ -17,6 +17,7 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import javax.ws.rs.core.Response.Status;
 
 import io.github.williansch.quarkussocial.domain.model.Post;
 import io.github.williansch.quarkussocial.domain.model.User;
@@ -64,7 +65,7 @@ public class PostResource {
         post.setUser(user);
 
         postRepository.persist(post);
-        return Response.ok(post).build();
+        return Response.status(Status.CREATED).entity(post).build();
     }
 
     @GET
@@ -85,8 +86,8 @@ public class PostResource {
 
         if (follower == null) {
             return Response
-                    .status(Response.Status.FORBIDDEN)
-                    .entity("inexistent Foolower")
+                    .status(Response.Status.BAD_REQUEST)
+                    .entity("inexistent Follower")
                     .build();
         }
 

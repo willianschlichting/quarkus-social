@@ -40,7 +40,7 @@ public class FollowerResource {
     @Transactional
     public Response followUser(@PathParam("userId") Long userId, FollowerDto followerDto) {
 
-        if (userId == followerDto.getFollowerId()) {
+        if (userId.equals(followerDto.getFollowerId())) {
             return Response.status(Response.Status.CONFLICT).entity("You can't follow yourself").build();
         }
 
@@ -70,6 +70,12 @@ public class FollowerResource {
 
     @GET
     public Response listFolloweResponse(@PathParam("userId") Long userId) {
+
+        User user = userRepository.findById(userId);
+
+        if (user == null) {
+            return Response.status(Response.Status.NOT_FOUND).build();
+        }
 
         List<Follower> followers = followerRepository.findByUser(userId);
 
