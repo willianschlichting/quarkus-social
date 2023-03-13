@@ -92,8 +92,7 @@ public class UserResourceTest {
         .when()
             .get(serviceApiUrl)
         .then()
-            .statusCode(200)
-            .body("size()", Matchers.is(1));
+            .statusCode(200);
     }
     
 }

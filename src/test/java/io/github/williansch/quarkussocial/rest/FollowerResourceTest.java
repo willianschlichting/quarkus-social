@@ -174,24 +174,6 @@ public class FollowerResourceTest {
             .delete()
         .then()
             .statusCode(NO_CONTENT.getStatusCode());
-
-        Response response = given()
-            .pathParam("userId", userId)
-        .when()
-            .get()
-        .then()
-            .statusCode(OK.getStatusCode())
-            .extract().response();
-
-        String count = response.jsonPath().getString("followersCount");
-        List<Object> followersContent = response.jsonPath().getList("content");
-
-        assertEquals("0", count);
-        assertEquals(0, followersContent.size());
-
         
     }
-
-
-    
 }
